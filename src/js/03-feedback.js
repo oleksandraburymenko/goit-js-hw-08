@@ -31,6 +31,11 @@ form.addEventListener('submit', e => {
     localStorage.removeItem(stateKey);
     emailInput.value = '';
     messageInput.value = '';
+
+    if (!emailInput.value || !messageInput.value) {
+      alert('Please fill in all fields');
+      return;
+    }
   });
 
  
