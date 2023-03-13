@@ -9,8 +9,14 @@ player.on('timeupdate', _.throttle(() => {
     localStorage.setItem('videoplayer-current-time', currentTime);
   }, 1000));
 
-const currentTime = localStorage.getItem('videoplayer-current-time');
+// const currentTime = localStorage.getItem('videoplayer-current-time');
 
-if (currentTime) {
-  player.setCurrentTime(currentTime);
-}
+// if (currentTime) {
+//   player.setCurrentTime(currentTime);
+// }
+player.on('ready', () => {
+  const currentTime = localStorage.getItem('videoplayer-current-time');
+  if (currentTime) {
+    player.setCurrentTime(currentTime);
+  }
+});
